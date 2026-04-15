@@ -8,12 +8,12 @@ class ExerciseSchema(Schema):
     equipment_needed = fields.Bool()
 
     @validates('name')
-    def validate_name(self, value):
+    def validate_name(self, value, **kwargs):
         if len(value.strip()) < 2:
             raise ValidationError("Exercise name must be at least 2 characters long")
 
     @validates('category')
-    def validate_category(self, value):
+    def validate_category(self, value, **kwargs):
         if not value.strip():
             raise ValidationError("Category is required")
 
@@ -28,17 +28,17 @@ class WorkoutExerciseSchema(Schema):
     duration_seconds = fields.Int()
 
     @validates('reps')
-    def validate_reps(self, value):
+    def validate_reps(self, value, **kwargs):
         if value is not None and value < 0:
             raise ValidationError("Reps cannot be negative")
 
     @validates('sets')
-    def validate_sets(self, value):
+    def validate_sets(self, value, **kwargs):
         if value is not None and value < 0:
             raise ValidationError("Sets cannot be negative")
 
     @validates('duration_seconds')
-    def validate_duration(self, value):
+    def validate_duration(self, value, **kwargs):
         if value is not None and value < 0:
             raise ValidationError("Duration cannot be negative")
 

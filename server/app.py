@@ -20,7 +20,7 @@ workout_exercise_schema = WorkoutExerciseSchema()
 #home route
 @app.route('/')
 def home():
-    return make_response(jsonify({"message": "Workout API running"}))
+    return make_response(jsonify({"message": "Workout Tracker API running"}))
 
 #Workout routes
 #workouts route -> GET/ get all workouts
