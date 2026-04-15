@@ -27,3 +27,15 @@ with app.app_context():
     #add and save all data to the db
     db.session.add_all([firstworkout, secondworkout])
     db.session.commit()
+
+    #link workouts table and exercises table
+    we1 = WorkoutExercise(workout_id = firstworkout.id, exercise_id = bench_press.id, reps=15, sets=3)
+    we2 = WorkoutExercise(workout_id = firstworkout.id, exercise_id=squats.id, reps=20, sets=3)
+    we3 = WorkoutExercise(workout_id=secondworkout.id, exercise_id=running.id, duration_seconds=1200)
+    we4 = WorkoutExercise(workout_id=firstworkout.id, exercise_id=pushups.id, reps=10, sets=5)
+
+    #add and save the data in db
+    db.session.add_all([we1, we2, we3, we4])
+    db.session.commit()
+
+    print("Seeding completed successfully.")
