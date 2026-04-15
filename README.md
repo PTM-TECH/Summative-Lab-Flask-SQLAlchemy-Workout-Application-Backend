@@ -45,24 +45,24 @@ It follows RESTful design principles and supports relational data through a many
 ## API Endpoints
 
 ### Workouts
-GET/workouts
-- Returns all workouts
-GET/workouts/<int:id>
-- Returns a single workout including associated exercises.
-POST/workouts
-- Creates a new workout
-DELETE/workouts/<int:id>
-- Deletes a workout and its associated workout-exercise records
+- GET/workouts: 
+Returns all workouts
+- GET/workouts/<int:id>:
+Returns a single workout including associated exercises.
+- POST/workouts:
+Creates a new workout
+- DELETE/workouts/<int:id>:
+Deletes a workout and its associated workout-exercise records
 
 ### Exercises
-GET/exercises
-- Returns all exercises.
-GET/exercises/<int:id>
-- Returns a single exercise and associated workouts
-POST/exercises
-- Creates a new exercise
-DELETE/exercises/<int:id>
-- Deletes an exercise and its associated workout-exercise records
+- GET/exercises:
+Returns all exercises.
+- GET/exercises/<int:id>:
+Returns a single exercise and associated workouts
+- POST/exercises:
+Creates a new exercise
+- DELETE/exercises/<int:id>:
+Deletes an exercise and its associated workout-exercise records
 
 ## Workout Exercises (Join Table)
 POST/workouts/<workout_id>/exercises/<exercise_id>/workout_exercises
