@@ -53,6 +53,6 @@ class WorkoutSchema(Schema):
     workout_exercises = fields.List(fields.Nested(WorkoutExerciseSchema), dump_only=True)
 
     @validates('duration_minutes')
-    def validate_duration(self, value):
+    def validate_duration(self, value, **kwargs):
         if value <= 0:
             raise ValidationError("Duration must be greater than 0")
